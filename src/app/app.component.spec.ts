@@ -1,10 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { OverlayModule} from './components/overlay/overlay.module';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[OverlayModule],
       declarations: [
-        AppComponent
+        AppComponent,
+        SidebarComponent
       ],
     }).compileComponents();
   }));

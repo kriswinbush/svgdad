@@ -1,21 +1,49 @@
+//angular
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 
+/* DSL Application Components */
+import { OverlayModule } from './components/overlay/overlay.module';
+import { SidebarModule } from './components/sidebar/sidebar.module';
+import { AuthenticationModule } from './components/authentication/authentication.module';
+
+/* Material.angular.io Component Library */ //create a met2module
+import { MatToolbarModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
+import { CoreModule } from './core/core.module';
+
+/* ngrx/store */
+import { StoreModule } from '@ngrx/store';
+import { SideListModule } from './components/side-list/side-list.module';
+import { sideListReducer } from './components/side-list/side-list.reducer';
+
+//Service
+import { OverlayService } from './components/overlay/services/overlay.service';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    SidebarModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    OverlayModule,
+    AuthenticationModule,
+    StoreModule.forRoot(sideListReducer),
+    CoreModule,
+    SideListModule
   ],
-  providers: [],
+  providers: [OverlayService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
