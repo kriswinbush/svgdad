@@ -15,8 +15,8 @@ import { PaymentsService } from '../services/payments.service';
   styleUrls: ['./cart-view.component.scss']
 })
 export class CartViewComponent implements OnInit, OnDestroy {
-  private dataSource:CatalogItem[];
-  private total:number = 0;
+  public dataSource:CatalogItem[];
+  public total:number = 0;
   private sub:Subscription;
   private pymtHandler:any;
   private amount:number = 500;

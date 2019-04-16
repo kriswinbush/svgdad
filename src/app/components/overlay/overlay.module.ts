@@ -14,7 +14,7 @@ import { MatSelectModule } from '@angular/material';
 import { ToasterComponent } from './toaster/toaster.component';
 import { ModalComponent } from './modal/modal.component';
 import { NotifierComponent } from './notifier/notifier.component';
-import { SplashComponent } from './splash/splash.component';
+// import { SplashComponent } from './splash/splash.component';
 import { OverlayComponent } from '../overlay/overlay.component';
 import { FootswitchComponent } from './footswitch/footswitch.component';
 import { ItemViewComponent } from '../../features/products/item-view/item-view.component';
@@ -40,7 +40,7 @@ import { ProductsModule } from '../../features/products/products.module';
     ProductsModule
   ],
   providers: [CatalogStore, ModalNetService, OverlayService],
-  declarations:[SplashComponent, NotifierComponent, ToasterComponent, FootswitchComponent, ModalComponent, OverlayComponent, HostDirective],
+  declarations:[ NotifierComponent, ToasterComponent, FootswitchComponent, ModalComponent, OverlayComponent, HostDirective],
   exports:[OverlayComponent],
   entryComponents:[ItemViewComponent, ModalComponent]
 })
