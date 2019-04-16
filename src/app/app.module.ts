@@ -41,7 +41,8 @@ import { OverlayService } from './components/overlay/services/overlay.service';
     AuthenticationModule,
     StoreModule.forRoot(sideListReducer),
     CoreModule,
-    SideListModule
+    SideListModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [OverlayService],
   bootstrap: [AppComponent]
